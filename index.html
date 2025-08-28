@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Emergency Service Directory</title>
     <!-- daisy ui cdn  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <!-- tailwind cdn  -->
@@ -30,12 +30,11 @@
             </div>
             <div id="coins"
                 class="flex  bg-[#41ff6b1a] w-[106px] h-[52px] rounded-full  justify-center items-center mr-4">
-                <h1 class="text-[20px] font-bold pr-3">100</h1>
+                <h1 id="coin-count" class="text-[20px] font-bold pr-3">100</h1>
                 <img class="h-[35px] w-[35px]" src="assets/coin.png" alt="">
             </div>
-            <div id="count-copy"
-                class=" bg-[#00a63e] w-[123px] h-[52px]  text-center rounded-full font-semibold text-[20px] text-[white]">
-                <p class="mt-2"><span>2</span> Copy</p>
+            <div class=" bg-[#00a63e] w-[123px] h-[52px]  text-center rounded-full font-semibold text-[20px] text-[white]">
+                <p class="mt-2"><span id="count-copy">0</span> Copy</p>
             </div>
         </div>
     </header>
@@ -51,33 +50,63 @@
     <main class="bg-[#f5fff6]">
         <div class="main-section">
             <div class="min-h-[360px] grid grid-cols-3 gap-6 p-10">
+
+                 <!-- card  -->
                 <div class="card bg-[#ffffff] p-5">
                     <div class="logo-heart flex justify-between">
                         <div class="bg-[#FFE3E2] h-[50px] w-[50px] rounded-lg flex justify-center items-center"><img
                                 class="h-[30px] w-[30px]" src="assets/emergency.png" alt=""></div>
-                        <div class="add-heart-btn" class="cursor-pointer"><i
+                        <div id="add-heart-btn1" class="cursor-pointer"><i
                                 class="fa-regular fa-heart text-[30px] mr-6 text-[#5C5C5C] "></i></div>
                     </div>
                     <div class="card-content">
                         <h2 class="text-[24px]  font-bold pt-1">National Emergency Number</h2>
-                        <p class="text-[#5C5C5C] text-[18px] font-medium">National Emergency</p>
-                        <h1 class="get-number text-[32px]  font-bold mt-2">999</h1>
+                        <p  id="card-title1" class="text-[#5C5C5C] text-[18px] font-medium">National Emergency</p>
+                        <h1 id="get-number1" class="text-[32px]  font-bold mt-2">999</h1>
                         <div class="bg-[#f2f2f2] h-[30px] w-[50px] rounded-full flex justify-center items-center">
                             <p class="text-[#5C5C5C] ">All</p>
                         </div>
                     </div>
                     <div class="copy-call flex mt-5">
-                        <button
-                            class="copy-btn btn text-[#5C5C5C] border-1 border-[#d4d6d5]  h-[38px] w-[178px] rounded-md mr-2"><span><i
+                        <button id="copy-btn1"
+                            class="btn text-[#5C5C5C] border-1 border-[#d4d6d5]  h-[38px] w-[178px] rounded-md mr-2"><span><i
                                     class="fa-regular fa-copy"></i></span> Copy</button>
-                        <button class="call-btn btn bg-[#00A63E] text-white text-[16px]  h-[40px] w-[180px]  rounded-md"><span><i
+                        <button id="call-button1" class="call-btn btn bg-[#00A63E] text-white hover:bg-[#0098a6] text-[16px]  h-[40px] w-[180px]  rounded-md"><span><i
                                     class="fa-solid fa-phone"></i></span> Call</button>
                     </div>
                 </div>
 
+
+                <!-- card  -->
+                <div class="card bg-[#ffffff] p-5">
+                    <div class="logo-heart flex justify-between">
+                        <div class="bg-[#FFE3E2] h-[50px] w-[50px] rounded-lg flex justify-center items-center"><img
+                                class="h-[30px] w-[30px]" src="assets/emergency.png" alt=""></div>
+                        <div id="add-heart-btn2" class="cursor-pointer"><i
+                                class="fa-regular fa-heart text-[30px] mr-6 text-[#5C5C5C] "></i></div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="text-[24px]  font-bold pt-1">National Emergency Number</h2>
+                        <p  id="card-title2" class="text-[#5C5C5C] text-[18px] font-medium">National Emergency</p>
+                        <h1 id="get-number2" class="text-[32px]  font-bold mt-2">100</h1>
+                        <div class="bg-[#f2f2f2] h-[30px] w-[50px] rounded-full flex justify-center items-center">
+                            <p class="text-[#5C5C5C] ">All</p>
+                        </div>
+                    </div>
+                    <div class="copy-call flex mt-5">
+                        <button id="copy-btn2"
+                            class="btn text-[#5C5C5C] border-1 border-[#d4d6d5]  h-[38px] w-[178px] rounded-md mr-2"><span><i
+                                    class="fa-regular fa-copy"></i></span> Copy</button>
+                        <button id="call-button2" class="call-btn btn bg-[#00A63E] text-white hover:bg-[#0098a6] text-[16px]  h-[40px] w-[180px]  rounded-md"><span><i  id="phone-icon"
+                                    class="fa-solid fa-phone"></i></span> Call</button>
+                    </div>
+                </div>
+           
+
             </div>
         </div>
-
+  
+        <!-- call History  -->
         <div class="bg-white mr-8 mt-8 mb-9 rounded-md pt-5 px-5">
             <div class="flex justify-between items-center mb-3">
                 <h1 class="font-bold text-[20px]"><span><i class="fa-regular fa-clock font-thin"></i></span> Call
@@ -86,16 +115,19 @@
             </div>
             <div class="flex justify-between items-center bg-[#fafafa] rounded-md p-3 mt-3">
                 <div>
-                    <h1 class="text-[18px] font-bold">Fire Service Number</h1>
-                    <p class="text-[#5C5C5C]">999</p>
+                    <h1 id="history-title" class="text-[18px] font-bold">Fire Service Number</h1>
+                    <p id="history-number" class="text-[#5C5C5C]">999</p>
                 </div>
                 <div>
-                    <p>date</p>
+                    <p id="date">date</p>
                 </div>
             </div>
         </div>
         </div>
     </main>
+
+
+    <div></div>
     <script src="script.js"></script>
 </body>
 
