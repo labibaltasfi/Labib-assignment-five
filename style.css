@@ -1,10 +1,45 @@
-
-
-.main-section{
+.main-section {
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
 
-.card{
+.call-history{
+    flex: 1;
+}
+
+.card {
+    flex: 1;
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+
+@media (max-width: 576px) {
+
+    .header{
+        display: block;
+    }
+
+    .banner{
+        padding: 3%;
+    }
+    .header-left{
+        margin-bottom: 20px;
+    }
+
+    .main-section {
+         grid-template-columns: 1fr;
+    }
+
+    .card{
+        max-width: 93%;
+        margin-left: 4%;
+    }
+.call-history {
+    height: 650px;
+    max-width: 80%;
+    margin-left: 10%;
+}
 }
