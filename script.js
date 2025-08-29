@@ -1,83 +1,73 @@
 
+// heart Button 
 
-// add heart feature 
+const heartButtons = document.getElementsByClassName('add-heart-btn')
 
-function heartCounts() {
-    let heartCount = parseInt(document.getElementById('heart-count').innerText);
-    heartCount++;
-    document.getElementById('heart-count').innerText = heartCount;
-}
-
-document.getElementById('add-heart-btn1')
-    .addEventListener('click', function (e) {
-        e.preventDefault()
-        heartCounts()
+for (const heartButton of heartButtons) {
+    heartButton.addEventListener('click', function () {
+        let heartCount = parseInt(document.getElementById('heart-count').innerText);
+        heartCount++;
+        document.getElementById('heart-count').innerText = heartCount;
     })
-document.getElementById('add-heart-btn2')
-    .addEventListener('click', function (e) {
-        e.preventDefault()
-        heartCounts()
-    })
-
-
-// call-btn, copy-btn, get-number
-// navigator.clipboard.writeText(var)
-
-// copy button 
-
-function copyCounts(id) {
-    const copyText = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(copyText);
-    alert('Number copied: ' + copyText);
-    let copyCount = parseInt(document.getElementById('count-copy').innerText);
-    copyCount++;
-    document.getElementById('count-copy').innerText = copyCount;
 }
 
 
-document.getElementById('copy-btn1')
-    .addEventListener('click', function () {
-        copyCounts('get-number1')
-    })
 
-document.getElementById('copy-btn2')
-    .addEventListener('click', function () {
-        copyCounts('get-number2')
+// copy Button 
+
+const copyButtons = document.getElementsByClassName('copy-btn')
+
+for (const copyButton of copyButtons) {
+    copyButton.addEventListener('click', function () {
+        const phoneNumber = copyButton.parentNode.parentNode.children[1].children[2].innerText
+        navigator.clipboard.writeText(phoneNumber);
+        alert('Number copied: ' + phoneNumber);
+        let copyCount = parseInt(document.getElementById('count-copy').innerText);
+        copyCount++;
+        document.getElementById('count-copy').innerText = copyCount;
     })
+}
+
 
 
 // call button 
 
-function coinCounts(id, number) {
-    const cardTitle = document.getElementById(id).innerText;
-    const phoneNumber = document.getElementById(number).innerText;
 
-    let coinCount = parseInt(document.getElementById('coin-count').innerText);
-    coinCount = coinCount - 20;
-    if (coinCount >= 0) {
-        document.getElementById('coin-count').innerText = coinCount;
-        alert(`📞 Calling  ${cardTitle} ${phoneNumber}...`);
-    }
-    else {
-        alert("❌ You don't have enough coins. You need at least 20 coins to make a call.")
-    }
+const callButtons = document.getElementsByClassName('call-btn')
+
+for (let callButton of callButtons) {
+    callButton.addEventListener('click', function () {
+        const cardTitle = callButton.parentNode.parentNode.children[1].children[0].innerText;
+        const cardSubTitle = callButton.parentNode.parentNode.children[1].children[1].innerText;
+        const phoneNumber = callButton.parentNode.parentNode.children[1].children[2].innerText;
+        const date = new Date().toLocaleTimeString();
+        let coinCount = parseInt(document.getElementById('coin-count').innerText);
+        coinCount = coinCount - 20;
+        const historyContainer = document.getElementById('history-container');
+        const usesHistory = document.createElement('div');
+        usesHistory.innerHTML = `
+    <div class="flex justify-between items-center bg-[#fafafa] rounded-md p-3 mt-3">
+                <div>
+                    <h1 id="history-title" class="text-[18px] font-bold">${cardTitle}</h1>
+                    <p id="history-number" class="text-[#5C5C5C]">${phoneNumber}</p>
+                </div>
+                <div>
+                    <p id="date">${date}</p>
+                </div>
+            </div>
+    `;
+        if (coinCount >= 0) {
+            document.getElementById('coin-count').innerText = coinCount;
+            alert(`📞 Calling ${cardSubTitle} ${phoneNumber}...`);
+            historyContainer.append(usesHistory);
+        }
+        else {
+            alert("❌ You don't have enough coins. You need at least 20 coins to make a call.")
+        }
+    })
 }
 
 
-document.getElementById('call-button1')
-    .addEventListener('click', function (e) {
-        e.preventDefault()
-        coinCounts('card-title1', 'get-number1')
-    })
-
-document.getElementById('call-button2')
-    .addEventListener('click', function (e) {
-        e.preventDefault()
-        coinCounts('card-title2', 'get-number2')
-    })
 
 
-
-
-// call history 
 
